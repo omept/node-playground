@@ -6,6 +6,12 @@ class SomeTopClass {
     }
 }
 
-module.exports.sum = sum;
-module.exports.PI = PI;
-module.exports.SomeTopClass = SomeTopClass;
+// module.exports.sum = sum;
+// module.exports.PI = PI;
+// module.exports.SomeTopClass = SomeTopClass;
+
+module.exports = {
+    sum: sum,
+    PI: PI,
+    SomeTopClass: SomeTopClass
+}
