@@ -9,14 +9,18 @@ let num1 = Math.floor(Math.random() * 10 + 1);
 let num2 = Math.floor(Math.random() * 10 + 1);
 let ans = num1 + num2;
 
-rLI.question(`What is the sum of ${num1} and ${num2}? \n`, resolveAns)
+rLI.question(`What is the sum of ${num1} and ${num2}? \n`, resolveAns);
 
-let resolveAns = (answer) => {
+function resolveAns(answer) {
     if (ans == answer.trim()) {
-        console.log('\nCorrect!');
+        rLI.setPrompt('Correct!\n');
+        rLI.prompt();
         rLI.close();
     } else {
-        console.log(`\nWrong! The correct answer is ${ans}.`)
-        rLI.close();
+        rLI.setPrompt(`Wrong! Try again :\n`);
+        rLI.prompt();
+        rLI.on('line', resolveAns);
     }
 }
+
+rLI.on('close', () => console.log("Readline closed.\n"));
