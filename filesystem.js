@@ -9,6 +9,17 @@ function writeAction(err) {
         console.log('error occured.');
         console.log(err);
     } else {
-        console.log('Write completed.')
+        console.log('Write completed.\n')
+        fs.readFile('./sample.txt', 'utf8', readAction)
+    }
+}
+
+function readAction(err, file) {
+    if (err) {
+        console.log('error occured.');
+        console.log(err);
+    } else {
+        console.log(file);
+        console.log('Read completed.');
     }
 }
